@@ -9,7 +9,7 @@ import (
 )
 
 var (
-	NUMBEROFCONNECTIONS = 100
+	NUMBEROFCONNECTIONS = 100 // Number of concurrent connections to make to each server
 )
 
 func main() {
@@ -64,7 +64,9 @@ func main() {
 		}
 	}
 
+	// Make sure all goroutines are running before sleeping
 	time.Sleep(10 * time.Second)
 
+	// Wait for all goroutines to finish after 10 seconds
 	wg.Wait()
 }
